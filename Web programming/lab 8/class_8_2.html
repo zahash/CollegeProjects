@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> display ascii code </title>
+</head>
+
+<script type="text/javascript">
+
+	// This line will register the q1 function as a keypress event handling
+	document.addEventListener('keypress', q1);
+
+	function q1(e){
+		var keystroke = e.keyCode;
+		console.log(keystroke);
+	}
+
+	function q2(event){
+		var a = 0
+		var b = 0
+
+		a = parseInt(document.f.t1.value)
+		b = parseInt(document.f.t2.value)
+
+		document.f.t3.value = (a+b).toString()
+	}
+
+</script>
+
+<body>
+
+	<form name="f">
+		<input type="text" name="t1"></input>
+		<input type="text" name="t2"></input>
+		<input type="text" name="t3"></input>
+
+		<input type="button" name="btn" value="add" onclick="q2(event)"></input>
+	</form>
+
+</body>
+</html>
+
+
+<!-- 
+question 2 :
+design a gui with 3 text box and one button
+perfrom the addition operation from the input of two text box
+and display the result in third text box -->
