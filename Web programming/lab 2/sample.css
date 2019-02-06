@@ -1,0 +1,45 @@
+body {
+	background-color: black;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+}
+
+h3 {
+	color: white;
+	text-align: center;
+}
+
+p {
+	font-family: verdana;
+	font-size: 16px;
+	color: white;
+	text-align: right;
+}
+
+a {
+	color: white;
+}
+
+div#text {
+	position: absolute;
+	left: 60%;
+	right: 10%;
+}
+
+div#image {
+	position:absolute;
+	right: 50%;
+}
+
+div#foot {
+	position:absolute;
+	top: 90%;
+	left: 50%;
+}
+
+footer {
+	color: white;
+}
