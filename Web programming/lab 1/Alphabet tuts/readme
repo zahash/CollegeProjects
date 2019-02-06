@@ -1,0 +1,5 @@
+table with columns (letter, audio_link, video_link, image)
+
+letter is just the letter with link to display 5 words
+audio_link and video_link is just embedded 'audio' and 'video' with
+image is the embedded image in the table
