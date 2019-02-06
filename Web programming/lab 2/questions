@@ -1,0 +1,16 @@
+external file method
+embedded method
+inline method
+
+
+design and develop a web pae for a news item of an online newspaper with heading,
+body and footer sections. the web page will be as follows
+
+the heading of the page iwll display the name of the newspaper or magazine
+thebody section of the page will be assigned to the news item which will 
+consist of the headline, the text of the news item in one column, and image 
+or a video embedded in the page, the author of the news item and links to related news
+
+
+design a table which shows the fruit name and cost in different color in different background 
+color for each fruit. use three fruits in the table
