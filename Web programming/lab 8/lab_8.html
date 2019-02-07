@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Lab 8 </title>
+</head>
+
+<script type="text/javascript">
+	
+	arr = [
+
+		{
+			'name' : 'zahash',
+			'accno' : 1,
+			'balance' : 5000
+		},
+		{
+			'name' : 'hashu',
+			'accno' : 2,
+			'balance' : 164
+		},
+		{
+			'name' : 'random name',
+			'accno' : 3,
+			'balance' : 5684
+		},
+		{
+			'name' : 'some one',
+			'accno' : 4,
+			'balance' : 18689
+		},
+		{
+			'name' : 'mouse',
+			'accno' : 5,
+			'balance' : 1568
+		}
+
+	]
+
+	function singleC(){ // find the maximum balance
+		max_bal = 0
+		max_index = 0
+		for(i in arr){
+			if (arr[i]['balance'] > max_bal){
+				max_bal = arr[i]['balance']
+				max_index = i
+			}
+		}
+
+		document.f.n.value = arr[max_index]['name']
+		document.f.a.value = arr[max_index]['accno']
+		document.f.b.value = arr[max_index]['balance']
+	}
+
+	function doubleC(){ // find the minimum balance
+		min_bal = Infinity
+		min_index = 0
+		for(i in arr){
+			if (arr[i]['balance'] < min_bal){
+				min_bal = arr[i]['balance']
+				min_index = i
+			}
+		}
+
+		document.f.n.value = arr[min_index]['name']
+		document.f.a.value = arr[min_index]['accno']
+		document.f.b.value = arr[min_index]['balance']
+	}
+
+	function deposit(){
+		if(!(document.f.amt.value == "")){
+			amount = parseInt(document.f.amt.value)
+
+			for(i in window.arr){
+				if(window.arr[i]['accno'] == parseInt(document.f.a.value)){
+					window.arr[i]['balance'] = window.arr[i]['balance'] + amount
+				}
+			}
+		}
+		else{
+			alert("Please enter some amount")
+		}
+	}
+
+	function withdraw(){
+		if(!(document.f.amt.value == "")){
+			amount = parseInt(document.f.amt.value)
+
+			for(i in window.arr){
+				if(window.arr[i]['accno'] == parseInt(document.f.a.value)){
+					if(window.arr[i]['balance'] >= amount){
+						window.arr[i]['balance'] = window.arr[i]['balance'] - amount
+					}
+					else{
+						alert("insufficient funds")
+					}
+				}
+			}
+		}
+		else{
+			alert("Please enter some amount")
+		}
+	}
+	
+	function show_bal(){
+		account = parseInt(document.f.a.value)
+		for(i in arr){
+			if (arr[i]['accno'] == account){
+				document.f.n.value = arr[i]['name']
+				document.f.a.value = arr[i]['accno']
+				document.f.b.value = arr[i]['balance']
+			}
+		}
+	}
+
+</script>
+
+<body>
+
+	<form name="f">
+		<p> Name </p>
+		<input type="text" name="n"> <br>
+
+		<p> Account No </p>
+		<input type="text" name="a"> <br>
+
+		<p> Balance </p>
+		<input type="text" name="b"> <br>
+
+		<p> Amount </p> 
+		<input type="text" name="amt"> <br> <br>
+
+		<input type="button" name="btn" onclick="singleC()" ondblclick="doubleC()" value="min/max balance"><br>
+		<input type="button" name="dep" onclick="deposit()" value="Deposit">
+		<input type="button" name="wit" onclick="withdraw()" value="Withdraw">	<br>
+		<input type="button" name="bal" onclick="show_bal()" value="Show Balance">
+	</form> 
+
+</body>
+</html>
