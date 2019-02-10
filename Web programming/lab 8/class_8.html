@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Coordinates of mouse on click </title>
+</head>
+
+<script type="text/javascript">
+	function coord(){
+		// event is a global object so no need to pass it as a parameter
+		// event object in JS has the attributes associated with the corresponding event
+		// Eg: mouse event --> (x,y) coordinates 
+		// Eg: keyboard event --> pressed key
+
+		x = event.clientX 
+		y = event.clientY
+		alert(x.toString() + ' : ' + y.toString())
+	}
+
+</script>
+
+<body>
+	<form>
+		<input type="button" name="btn" onclick="coord()" style="background-color: #555555; border-radius: 8px; padding: 400px 400px">
+	</form>
+</body>
+
+</html>
+
