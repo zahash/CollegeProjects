@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> primary page </title>
+</head>
+
+<script type="text/javascript">
+	function some_function_in_JS(){
+		alert("Hello World!");
+	}
+
+	function even_odd(){
+
+		a = prompt("Enter number: ")
+		if (a%2 == 0){
+			alert('Even')
+		}
+		else{
+			alert('Odd')
+		}
+	}
+
+	function prime_checker(a){
+		// a = prompt("Enter number: ")
+		for (i=2; i<a/2; i++){
+			if (a%i == 0){
+				return 0
+			}
+		}
+		return 1
+	}
+
+	function prime_range(){
+		min = prompt("Enter lower bound: ")
+		max = prompt("Enter upper bound: ")
+
+		for(num=min; num<=max; num++){
+			if(prime_checker(num) == 1){
+				alert(num)
+			}
+		}
+
+	}
+
+	function display_user(){
+		alert(document.my_form.username.value)
+		alert(document.my_form.userpass.value)
+	}
+
+
+
+</script>
+
+
+<body>
+
+	<form action="a.php" name='my_form' method='GET'>
+		
+		<!-- <br> is for break -->
+		username : 
+		<input type="text" name="username"> <br>
+		password : 
+		<input type="password" name="userpass"> <br><br>
+		<input type="button" name="submitButton" value="click to submit" onclick="display_user()"> <br>
+		<input type="file" name="filepath"> <br>
+		<input type="color" name="c1"> <br>
+
+
+		<!-- html has event handlers (which function to be run when a button is clicked) -->
+		<!-- functions can be defined inside the <script> tag -->
+		<input type="button" name="b1" value='display JS' onclick="some_function_in_JS()">
+		<input type="button" name="b2" value='display embed' onclick="alert('predefined function')"> <br>
+		<input type="button" name="b3" value='check even or odd' onclick="even_odd()"> <br>
+		<input type="button" name="b4" value='prime number checker' onclick="prime_checker()"> <br>
+		<input type="button" name="b5" value='prime range' onclick="prime_range()"> <br>
+
+
+
+
+
+	
+	</form>
+</body>
+
+</html>
+
+
+
+
+<!-- name attribute of the contorls will be treated as variable name  -->
+<!-- for fetching the data from the control either in javascript code -->
+<!-- or php code -->
+
+<!-- value is the attribute that will be placed on top of the control -->
