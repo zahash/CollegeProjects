@@ -1,0 +1,39 @@
+
+<!-- 
+write a code to design a form to give the input for ffcs course registration
+
+university core subjects should be taken using check box
+
+electives to be taken using a radio button
+
+second year students at the max are allowed to take one elective at a time
+
+display the electives and university core selected by the student in the click event 
+of display button
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> more Buttons </title>
+</head>
+
+<script type="text/javascript">
+	
+	function rdo(selected_rdo_btn_id){
+		alert(document.getElementById(selected_rdo_btn_id).value)
+	}
+
+</script>
+
+<body>
+	<form name="f">
+		<label> <input type="radio" name="languages" id="py" value="Python" onclick="rdo('py')"> Python </label> <br>
+		<label> <input type="radio" name="languages" id="js" value="JavaScript" onclick="rdo('js')"> JavaScript </label> <br>
+		<label> <input type="radio" name="languages" id="mt" value="MATLAB" onclick="rdo('mt')"> MATLAB </label> <br>
+		
+	</form>
+</body>
+</html>
+ 
