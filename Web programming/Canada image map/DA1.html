@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> DA 1 </title>
+</head>
+
+<script>
+function writeText(txt) {
+  document.getElementById("desc").innerHTML = txt;
+}
+</script>
+
+<body>
+<h1> Click on any Teritory to see its info </h1>
+<h1 id="desc"> Mouse over the states to see their names </h1>
+
+<img src="canada.png" usemap="#image-map">
+
+<map name="image-map">
+    <area target="" alt="YT" title="YT" href="yt.html" coords="192,74,92,266,114,282,325,362,323,343,290,339,292,323,275,296,269,255,246,216,257,197,246,189,250,166,219,157,235,116" shape="poly"
+    onmouseover="writeText('Yukon')"
+    >
+
+    <area target="" alt="NT" title="NT" href="nt.html" coords="239,120,227,149,253,164,255,217,276,287,295,332,328,339,330,362,386,379,535,413,651,425,664,329,559,302,545,286,518,282,425,205,430,176,569,189,588,46,439,49" shape="poly"
+    onmouseover="writeText('Northwest Territories')"
+    >
+
+    <area target="" alt="NU" title="NU" href="nu.html" coords="433,179,429,200,521,276,545,282,564,300,665,325,658,422,765,422,820,353,930,368,1004,335,1180,322,1213,199,960,103,1038,7,602,49,575,196" shape="poly"
+    onmouseover="writeText('Nunavut')"
+    >
+
+    <area target="" alt="BC" title="BC" href="bc.html" coords="123,295,382,389,345,536,408,636,419,681,240,672,189,629,127,495" shape="poly"
+    onmouseover="writeText('British Columbia')"
+    >
+
+    <area target="" alt="AB" title="AB" href="ab.html" coords="390,389,353,535,416,644,425,681,491,692,532,413" shape="poly"
+    onmouseover="writeText('Alberta')"
+    >
+
+    <area target="" alt="SK" title="SK" href="sk.html" coords="539,418,499,695,648,708,646,535,652,433" shape="poly"
+    onmouseover="writeText('Saskatchewan')"
+    >
+
+    <area target="" alt="MB" title="MB" href="mb.html" coords="656,429,651,528,652,712,761,712,762,612,858,506,804,503,791,461,762,429" shape="poly"
+    onmouseover="writeText('Manitoba')"
+    >
+
+    <area target="" alt="ON" title="ON" href="on.html" coords="861,511,771,611,764,704,808,745,870,739,910,715,961,774,1018,811,1008,862,1087,852,1153,778,1154,759,1126,771,1083,757,1050,742,1030,628,973,539" shape="poly"
+    onmouseover="writeText('Ontario')"
+    >
+
+    <area target="" alt="QC" title="QC" href="qc.html" coords="1003,349,1011,539,1034,626,1054,732,1121,767,1151,758,1161,777,1224,739,1234,688,1253,669,1291,652,1314,631,1353,598,1402,509,1396,495,1291,533,1279,555,1240,553,1223,541,1201,506,1211,469,1259,472,1244,432,1227,393,1204,358,1068,332" shape="poly"
+    onmouseover="writeText('Quebec')"
+    >
+
+    <area target="" alt="NL" title="NL" href="nl.html" coords="1207,340,1269,475,1219,478,1209,499,1236,539,1277,551,1284,528,1399,488,1410,515,1400,608,1525,598,1513,543,1403,449" shape="poly"
+    onmouseover="writeText('Newfoundland and Labrador')"
+    >
+
+    <area target="" alt="NB" title="NB" href="nb.html" coords="1290,659,1254,679,1283,734,1310,728,1342,689,1307,652" shape="poly"
+    onmouseover="writeText('New Brunswick')"
+    >
+
+    <area target="" alt="NS" title="NS" href="ns.html" coords="1389,642,1379,679,1346,697,1313,745,1337,774,1362,732,1403,697,1413,668" shape="poly"
+    onmouseover="writeText('Nova Scotia')"
+    >
+</map>
+
+</body>
+</html>
+
