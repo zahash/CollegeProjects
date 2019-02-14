@@ -1,0 +1,66 @@
+<!-- 
+design a page which gives multiple options for the elective subjects
+also display the multiple options of the university elective 
+ensure that student are allowed to take one course elective and core subject 
+depending on the subject selected by the student, display the faculty name and slot for the benefit of students
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Even More Radios' </title>
+</head>
+
+<script type="text/javascript">
+
+	form_status = {}
+
+	form_info = {
+
+		'elective' : {
+
+			1 : ['c faculty', 'c slot'],
+			2 : ['Java faculty', 'Java slot'],
+			3 : ['VC++ faculty', 'VC++ slot']
+	
+		},
+
+		'core' : {
+
+			1 : ['OS faculty', 'OS slot'],
+			2 : ['IWP faculty', 'IWP slot'],
+			3 : ['PDC faculty', 'PDC slot']
+
+		}
+	}
+
+	function display(){
+		for(k in form_status){
+			index = form_status[k]	// 1 | 2 | 3
+			alert(form_info[k][index])
+		}
+	}
+</script>
+
+<body>
+	<form>
+		<fieldset id="elective_field">
+			<label><input type="radio" name="r1" onclick="window.form_status['elective'] = 1"> C++ </label> <br>
+			<label><input type="radio" name="r1" onclick="window.form_status['elective'] = 2"> Java </label> <br>
+			<label><input type="radio" name="r1" onclick="window.form_status['elective'] = 3"> VC++ </label> <br>
+			
+		</fieldset>
+
+		<fieldset id="core_field">
+			<label><input type="radio" name="r2" onclick="window.form_status['core'] = 1"> OS </label> <br>
+			<label><input type="radio" name="r2" onclick="window.form_status['core'] = 2"> IWP </label> <br>
+			<label><input type="radio" name="r2" onclick="window.form_status['core'] = 3"> PDC </label> <br>
+			
+		</fieldset>
+
+		<input type="button" name="dbtn" onclick="display()" value="display">
+	</form>
+
+</body>
+</html>

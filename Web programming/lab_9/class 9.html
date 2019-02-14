@@ -1,0 +1,45 @@
+<!-- design a webpage which provides the three core selectives in one group
+and three program core in one group
+make sure that students are priveliged to take one core selective and one core subject
+
+provide a display option to display the number of selections have been done by each student
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> More Radios' </title>
+</head>
+
+<script type="text/javascript">
+
+	form_status = []
+
+	function display(){
+		alert(form_status.length)
+	}
+</script>
+
+<body>
+	<form>
+		<fieldset id="field1">
+			<label><input type="radio" name="r1" onclick="window.form_status[0] = 1"> C++ </label> <br>
+			<label><input type="radio" name="r1" onclick="window.form_status[0] = 2"> Java </label> <br>
+			<label><input type="radio" name="r1" onclick="window.form_status[0] = 3"> VC++ </label> <br>
+			
+		</fieldset>
+
+		<fieldset id="field2">
+			<label><input type="radio" name="r2" onclick="window.form_status[1] = 1"> OS </label> <br>
+			<label><input type="radio" name="r2" onclick="window.form_status[1] = 2"> IWP </label> <br>
+			<label><input type="radio" name="r2" onclick="window.form_status[1] = 3"> PDC </label> <br>
+			
+		</fieldset>
+
+		<input type="button" name="dbtn" onclick="display()" value="display">
+	</form>
+
+</body>
+</html>

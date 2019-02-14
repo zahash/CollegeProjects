@@ -1,0 +1,29 @@
+<!--
+write a code to design a web page with 3 elective subjects and
+provide the facility to the user to select atmost 3 electives and
+minimum 0 electives
+
+display the elective subjects selected by the student in the click event of display button
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Check boxes </title>
+</head>
+
+<script type="text/javascript">
+    form_status = []
+
+</script>
+
+<body>
+    <form name="f">
+        <label><input type="checkbox" name="c1" onclick="window.form_status.push("Elec1")"> Elective 1 </label> <br>
+        <label><input type="checkbox" name="c1" onclick="window.form_status.push("Elec2")"> Elective 2 </label> <br>
+        <label><input type="checkbox" name="c1" onclick="window.form_status.push("Elec3")"> Elective 3 </label> <br>
+
+        <input type="button" name="dbtn" value="display selected" onclick="alert(form_status)">
+    </form>
+</body>
+</html>
