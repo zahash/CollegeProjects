@@ -12,14 +12,14 @@ import time
 # which simulates the execution of program
 
 ready_queue = deque()
-time_to_wait_for_new_process = 2
+time_to_wait_for_new_process = 0.5
 
 max_time_taken_to_create_new_process = 5
 max_burst_time = 10
 # priority is from 1 to 5
 
 
-def enqueue_random_process(pid):
+def enqueue_random_process():
 
     print("creating process...")
     random_process = Process(Process.global_pid_counter, int(time.time()), random.randint(1, max_burst_time), random.randint(1, 5))
@@ -30,7 +30,7 @@ def enqueue_random_process(pid):
     print(f"process enqueued: {ready_queue} \n")
 
     # making another thread to continuously call the function
-    threading.Timer(random.randint(1, max_time_taken_to_create_new_process), function=enqueue_random_process, args=[Process.global_pid_counter]).start()
+    threading.Timer(random.randint(1, max_time_taken_to_create_new_process), function=enqueue_random_process).start()
 
 
 def execute_process_from_ready_queue(time_to_wait_for_new_process=time_to_wait_for_new_process):
@@ -48,7 +48,7 @@ def execute_process_from_ready_queue(time_to_wait_for_new_process=time_to_wait_f
         execute_process_from_ready_queue()
 
 
-T1 = threading.Timer(random.randint(1, max_time_taken_to_create_new_process), function=enqueue_random_process, args=[Process.global_pid_counter])
+T1 = threading.Timer(random.randint(1, max_time_taken_to_create_new_process), function=enqueue_random_process)
 T2 = threading.Timer(0, function=execute_process_from_ready_queue, args=[time_to_wait_for_new_process])
 
 T1.start()
