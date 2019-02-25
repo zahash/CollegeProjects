@@ -1,0 +1,19 @@
+div#marks {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+
+    /*margin: 40px;*/
+    background-color: black;
+
+    resize: both;
+    overflow: auto;
+}
+
+th {
+    color: red;
+}
+
+td {
+    color: blue;
+}
