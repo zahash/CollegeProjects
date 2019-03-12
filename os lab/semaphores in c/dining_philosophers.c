@@ -4,39 +4,40 @@
 #include <semaphore.h>
 #include <unistd.h>
 
+pthread_t philosopher[5];
+pthread_mutex_t chopstick[5];
 
-void *philosopher(void *arg) {
-	int n = 5;
+void *func(int n)
+   {
+   printf ("Philosopher %d is thinking\n",n);
 
-	while(1){
-		thinking();
+   //when philosopher 5 is eating he takes fork 1 and fork 5
+   pthread_mutex_lock(&chopstick[n]);
+   pthread_mutex_lock(&chopstick[(n+1)%5]);
+   printf ("Philosopher %d is eating\n",n);
+   sleep(3);
+   pthread_mutex_unlock(&chopstick[n]);
+   pthread_mutex_unlock(&chopstick[(n+1)%5]);
 
-		take_fork(i);
-		take_fork((i+1)%n);
+   printf ("Philosopher %d finished eating\n",n);
 
-		eat();
+   return(NULL);
+   }
 
-		put_fork(i);
-		put_fork((i+1)%n);
-	}
+int main()
+   {
+   int i;
+   for(i=0;i<5;i++)
+      pthread_mutex_init(&chopstick[i],NULL);
 
-}
+   for(i=0;i<5;i++)
+      pthread_create(&philosopher[i],NULL,(void *)func,(void *)i);
 
-int main(void) {
+   for(i=0;i<5;i++)
+      pthread_join(philosopher[i],NULL);
 
-    pthread_t tid0,tid1;
-    sem_init(&wrt, 0, 1);
-    sem_init(&mutex, 0, 1);
+   for(i=0;i<5;i++)
+      pthread_mutex_destroy(&chopstick[i]);
 
-	// create more threads for reader and writer as per required	
-    pthread_create(&tid0, NULL, writer, NULL);
-    pthread_create(&tid1, NULL, reader, NULL);
-    
-    pthread_join(tid0, NULL);
-    pthread_join(tid1, NULL);
-
-    sem_destroy(&mutex);
-    sem_destroy(&wrt);
-
-    return 0;
-}
+   return 0;
+   }
