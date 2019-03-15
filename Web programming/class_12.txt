@@ -43,3 +43,6 @@ of each employee (basic + allowances - tax)
 write a php code to take the users' choice of font-name, font-size and 
 background-color. ensure to display the webpage in these styles when
 the user visits the website next time
+
+perform addition of user input from html form and display the result 
+in the third text box in html
