@@ -1,0 +1,45 @@
+when you upload multiple files from html to php, php receives the 
+details of the uploaded files through $_FILES as 3-D array
+first index is the name of the control
+second index refers [name, tmp_name, size, type, error]
+third indes refers the corresponding index of the uploaded files
+
+-----------------------------------------------------------------------------
+
+<form action="s.php" enctype="multipart/form-data" method="post">
+	<input type="file" name="tf1[]" multiple="multiple">
+	<input type="submit" name="sbtn">
+</form>
+
+-----------------------------------------------------------------------------
+
+foreach($_FILES["tf1"]["name"] as $name){
+	echo $name;
+}
+
+-----------------------------------------------------------------------------
+
+cookies are useful to design a website based on the users' choice
+
+
+
+
+##############################################################################
+write php code to ensure that the user should upload only pdf files
+of size 2KB
+
+let the user submit two files as part of their J component
+file A should be description of the project
+file B should be screen shots of the project
+provide the code to check the register number of the two files are same
+
+write a php code to display the maximum and minimum marks in cat1 and cat2
+from "a.txt" file. hint: use formated strings
+
+"employee.txt" file has the details of salaries of three employees
+[basic, allowances, tax]. write a php code to display the final salary
+of each employee (basic + allowances - tax)
+
+write a php code to take the users' choice of font-name, font-size and 
+background-color. ensure to display the webpage in these styles when
+the user visits the website next time
