@@ -1,0 +1,17 @@
+mov di, 1200
+mov cl, 04
+mov al, [di]
+out coh, al
+mov bx, 1010
+dec bx
+jnz 100f
+inc di
+loop 1007
+jmp 1000
+hlt
+
+from 1200 addr
+09
+05
+06
+0a

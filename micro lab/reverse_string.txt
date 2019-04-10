@@ -1,0 +1,35 @@
+assume cs: code, ds: data, es: extra
+
+data segment
+str1 db "zahash"
+length dw 6
+data ends
+
+extra segment
+str2 db 6 dup(?)
+extra ends
+
+code segment
+start:
+	mov ax, data
+	mov ds, ax
+
+	mov ax, extra
+	mov es, ax
+
+	mov cx, length
+	mov si, offset str1
+	mov di, offset str2
+
+	add di, length
+
+l1:
+	mov al, str1[si]
+	mov str2[di], al
+	inc si
+	dec di
+	loop l1
+
+hlt 
+code ends
+end start

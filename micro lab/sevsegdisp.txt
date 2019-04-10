@@ -1,0 +1,27 @@
+rpt:
+	mov si, 1200
+	mov bl, 08h
+	dec bl
+
+l1:
+	mov al, bl
+	out 00c0, al
+	mov al, [si]
+	out 00c8, al
+
+	jmp delay
+
+l3:
+	inc si
+	dec bl
+	jnz l1
+	jmp rpt
+	hlt
+
+delay:
+	mov bh, offh
+
+l2:
+	dec bh
+	jnz l2
+	jmp l3

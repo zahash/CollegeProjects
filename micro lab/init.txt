@@ -1,0 +1,24 @@
+mount c c:\masm611
+c:
+cd bin
+
+edit p.asm
+
+<your code here>
+
+
+masm p.asm
+link p.obj
+
+<press enter 4 times>
+
+debug p.exe
+u
+
+note down rhs address behind hlt
+
+g that_address
+
+q
+
+exit

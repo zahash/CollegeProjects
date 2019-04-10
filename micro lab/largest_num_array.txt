@@ -1,0 +1,27 @@
+data segment
+array db 8h, 50h, 75h, 78h, 0f3h, 43h, 60h, 25h, 35h
+data ends
+
+code segment 
+assume cs:code, ds:data
+
+start:
+	mov ax, data
+	mov ds, ax
+	mov cx, 08h
+	mov si, 00h
+	mov ax, 00h
+	mov bl, 00h
+
+l1: 
+	cmp bl, array[si]
+	jnc l2
+	mov bl, array[si]
+
+l2:
+	add si, 1
+	loop l1
+
+hlt
+code ends
+end start

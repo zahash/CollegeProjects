@@ -1,0 +1,34 @@
+assume cs: code, ds: data
+
+data segment
+array db 08h, 15h, 3ch, 2f, 17h
+data ends
+
+code segment
+start:
+	mov ax, data
+	mov ds, ax
+
+	mov ch, 09h 	; outer
+
+back2:
+	mov cl, 09h 	; inner
+	mov si, 0000h 	; pointer
+
+back1:
+	mov al, array[si]
+	mov ah, array[si+1]
+
+	cmp al, ah 		; cmp ah, al for descending order
+	jc skip			; jump if carry
+	jz skip 		; jump if last computation was zero
+
+	mov [si+1], al
+	mov [si], ah
+
+skip:
+	inc si
+	dec cl
+	jnz back1
+	dec ch
+	jnz back2

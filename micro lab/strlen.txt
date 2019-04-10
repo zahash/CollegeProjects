@@ -1,0 +1,27 @@
+assume cs: code, ds: data
+
+data segment
+str db 'zahash$'
+strlen db 2 dup(?)
+data ends
+
+code segment
+start:
+	mov ax, data
+	mov ds, ax
+
+	mov si, offset str
+
+next:
+	cmp [si], '$'
+	je done
+	inc bx
+	inc si
+	jmp next
+
+done:
+	mov strlen, bx
+
+hlt 
+code ends
+end start

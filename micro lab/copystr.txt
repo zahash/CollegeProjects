@@ -1,0 +1,33 @@
+assume cs: code, ds: data, es: extra
+
+data segment
+str db 'zahash$'
+strlen db $-str
+data ends
+
+extra segment
+str2 db 20h dup(?)
+extra ends
+
+code segment
+start:
+	cld
+	mov ax, data
+	mov ds, ax
+
+	mov ax, extra
+	mov es, ax
+
+	mov si, offset str
+	mov si, offset str2
+
+	mov cl, strlen
+	mov ch, 00h
+
+l1:
+	movsb
+	loop l1
+
+hlt 
+code ends
+end start

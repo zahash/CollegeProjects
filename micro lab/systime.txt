@@ -1,0 +1,78 @@
+assume cs: code, ds: data
+
+data segment
+msg1 db 'The time is : &'
+hr db ?
+min db ?
+sec db ?
+msec db ?
+data ends
+
+code segment
+start:
+	mov ax, data
+	mov ds, ax
+	
+	mov ah, 2ch
+	int 21h
+
+	mov hr, ch
+	mov min, cl
+	mov sec, dh
+	mov msec, dl
+
+	lea dx, msg1
+	mov ah, 09h
+	int 21h
+
+	mov al, hr
+	aam
+	mov bx, ax
+	call display
+
+	mov dl, ":"
+	mov ah, 02h
+	int 21h
+
+	mov al, min
+	aam
+	mov bx, ax
+	call display
+
+	mov dl, ":"
+	mov al, 02h
+	int 21h
+
+	mov al, sec
+	aam
+	mov bx, ax
+	call display
+
+	mov dl, "."
+	mov ah, 02h
+	int 21h
+
+	mov al, msec
+	aam
+	mov bx, ax
+	call display
+
+	mov ah, 4ch
+	int 21h
+
+display proc near
+	mov dl, bh
+	add dl, 30h
+	mov ah, 02h
+	int 21h
+	mov dl, bl
+	add dl, 30h
+	
+	mov ah, 02h
+	int 21h
+	ret
+display endp
+
+hlt 
+code ends
+end start

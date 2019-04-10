@@ -1,0 +1,27 @@
+data segment
+array dw 12h, 0f2h, 81h, 70h, 0f9, 69h
+data ends
+
+code segment
+assume cs: code, ds: data
+
+start:
+	mov ax, data
+	mov ds, ax
+	mov cx, 06h
+	mov si, 00h
+	mov ax, 00
+
+l1:
+	add ax, array[si]
+	add si, 2
+	loop l1
+
+	mov bx, ax
+	mov dl, 06h
+
+	div dl
+
+hlt
+code ends
+end start

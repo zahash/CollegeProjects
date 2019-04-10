@@ -1,0 +1,32 @@
+data segment
+bin dw 01a9h
+bcd db 2 dup(0)
+data ends
+
+code segment
+assume cs: code, ds: data
+
+start:
+	mov ax, data
+	mov ds, ax
+
+	mov ax, bin
+	mov cl, 64h
+
+	div cl
+
+	mov bcd+1, al
+	mov al, ah
+	mov ah, 00h
+	mov cl, oah
+
+	div cl
+
+	mov cl, 0h
+	ror al, cl
+	add al, ah
+	mov ah, 4ch
+	int 21h
+
+code ends
+end start

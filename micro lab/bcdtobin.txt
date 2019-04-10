@@ -1,0 +1,29 @@
+assume cs: code, ds: data
+
+data segment
+bcd dw 27h
+bin dw dup(?)
+data ends
+
+code segment
+start:
+	mov ax, data
+	mov ds, ax
+
+	mov ax, bcd
+	and ax, 07h
+	
+	mov bx, ax
+	mov ax, bcd
+	and ax, 0f0h
+
+	mov cx, 0ah
+	mul cx
+
+	add ax, bx
+	mov bin, ax
+	mov ah, 4ch
+	int 21h
+
+code ends
+end start
